@@ -36,6 +36,5 @@ public class Printf9 {
                 "I am typing to the next line, %s\n", name);
 
 
-        5\bv oo
     }
 }
