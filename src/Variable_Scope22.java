@@ -18,9 +18,9 @@ public class Variable_Scope22 {
     }
     static void doSomething(){
         System.out.println(x);
-        int y = x + 2;           //Just assigning class scope variable.
+        int y = x + 2; // LOCAL     //Just assigning class scope variable.
         System.out.println(y);
-        int x = 2;
+        int x = 2; // LOCAL
         System.out.println(x);
     }
 }
