@@ -5,9 +5,26 @@ public class Overload_Method21 {
         //                   but different in parameters
         //                   signature = name + parameters
 
-        System.out.println(add(5, 6) + 5);
+        // If there are two or method with same name,
+        // It will end-up using the method with matching parameters
+
+        String pizza;
+        pizza = BakePizza("Pineapple");
+        System.out.println(pizza);
+
+        pizza = BakePizza("fat Bread" , "mozzarella", "pepperoni");
+        System.out.println(pizza );
+
     }
-        static int add( int i , int j){
-         return i + j;
-        }
+    static String BakePizza(String bread){
+        return bread + " pizza";
+    }
+
+    static String BakePizza(String bread, String cheese){
+        return cheese + " " + bread + "pizza";
+    }
+
+    static String BakePizza(String bread, String cheese, String topping){
+        return topping + " " +  cheese + " " + bread + " pizza";
+    }
 }
