@@ -84,6 +84,8 @@ public class Project_1 {
 
     static boolean exit(){
         System.out.println("We hate to see you go 🥲");
-        return false;
+        //System.exit(0); This will also stop the program immediately
+        return false; // this goes back and stops the while loop,
+            // So potentially it could continue the code outside while loop
     }
 }
