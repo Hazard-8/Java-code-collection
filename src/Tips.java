@@ -12,6 +12,12 @@ public class Tips {
 
       * win + charmap for select symbols
 
+      * To enter/exit custom zen mode, Alt + z, z
+
+      *
+
+      *
+
       */
 
     }
