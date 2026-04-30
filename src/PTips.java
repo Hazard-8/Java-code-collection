@@ -11,6 +11,16 @@
         e.g:- ("Are you a Student: Enter \"(Y/N)\" OR \"(true / false).\"");
 
     *
+      There is an advanced variable called multi line string,
+      it is initialized using """  in the start and """ in the end.
+      e.g.:-  String Crazy_String = """
+                                    ---------
+                                   |         |
+                                   |    ●    |
+                                   |         |
+                                    ---------
+                                    """;
+       System.out.print(Crazy_String);
 
     *
 

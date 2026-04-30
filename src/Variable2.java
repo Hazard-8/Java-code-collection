@@ -1,5 +1,11 @@
 public class Variable2 {
     public static void main(String[]args){
+
+        /*
+         There is an advanced variable called multi line string,
+         it is initialized using """  in the start and """ in the end.
+        */
+
         // variable = a reusable container for a value
         // variable behaves as if it was the value it contains
 
