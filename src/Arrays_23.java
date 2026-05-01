@@ -24,8 +24,8 @@ public class Arrays_23 {
         //There is a thing called enhanced for loop,
         // An enhance for loop cycle exactly once for all the elements inside the arrays
         //Basically it's saying
-        //                      for every ((Declared variable) inside  (array)) { Do this }
-                                for           (String fruit      :      fruits){
+        //                      for every ((Declared variable)  in (array)) { Do this }
+                                for           (String fruit      :     fruits){
                                     System.out.println(fruit);
         }
 
