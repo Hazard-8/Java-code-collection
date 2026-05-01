@@ -27,5 +27,7 @@ public class user_input_into_Array_24 {
         for (String food : foods)
             System.out.println(food);
 
+        scanner.close(); // Always remember to close scanner;
+
     }
 }
