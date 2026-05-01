@@ -21,7 +21,7 @@ public class Arrays_23 {
         // After importing util.Arrays; we could perform operations on array
         Arrays.sort(fruits); // This sorts elements alphabetically and numbers in Accenting orders
 
-        //There is a thing called enhanced for loop,
+        //There is a thing called enhanced for loop, also known as 'for each loop'
         // An enhance for loop cycle exactly once for all the elements inside the arrays
         //Basically it's saying
         //                      for every ((Declared variable)  in (array)) { Do this }
