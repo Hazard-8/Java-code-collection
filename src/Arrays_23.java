@@ -14,7 +14,7 @@ public class Arrays_23 {
 
         int numOfFruits = fruits.length; // .length; a build in function to find length of array
 
-         for (int i = 0; i < fruits.length; i++ ){ // Using loop we could print all the elements one by one
+         for(int i = 0; i < fruits.length; i++ ){ // Using loop we could print all the elements one by one
              System.out.print(fruits[i]+ " ");
          }
         System.out.println();
