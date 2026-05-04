@@ -84,6 +84,12 @@ public class Trial {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        // Source - https://stackoverflow.com/a/31415157
+// Posted by Andrew, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-05-05, License - CC BY-SA 3.0
+
+        final String string = "CO\u2082"; // CO₂
+        System.out.println(string);
         System.out.print("Enter number (0-99999): ");
         System.out.println(convert(sc.nextInt()));
     }
