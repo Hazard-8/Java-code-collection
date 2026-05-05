@@ -76,7 +76,7 @@ public class Exercise9_slotMachine_30 {
             }
 
         }
-        System.out.println("GAME OVER! Your final balance is $" + balance);
+        System.out.println("GAME OVER! \nYour final balance is $" + balance);
 
         scanner.close();
     }
@@ -141,38 +141,18 @@ public class Exercise9_slotMachine_30 {
 
         else if( (row[0].equals(row[1]))) {
             System.out.println("---DOUBLES---");
-            return switch (row[0]) {
-                case "🍒" -> bet * 2;
-                case "🍉" -> bet * 3;
-                case "🍋" -> bet * 4;
-                case "🍔" -> bet * 5;
-                case "⭐" -> bet * 10;
-                default -> 0;
-            };
+            return getMultiplier(row[0]) * bet;
+
         }
 
         else if( (row[1].equals(row[2])) ){
             System.out.println("---DOUBLES---");
-            return switch (row[1]) {
-                case "🍒" -> bet * 2;
-                case "🍉" -> bet * 3;
-                case "🍋" -> bet * 4;
-                case "🍔" -> bet * 5;
-                case "⭐" -> bet * 10;
-                default -> 0;
-            };
+            return getMultiplier(row[1]) * bet;
         }
 
         else if( (row[0].equals(row[2])) ){
             System.out.println("---DOUBLES---");
-            return switch (row[0]) {
-                case "🍒" -> bet * 2;
-                case "🍉" -> bet * 3;
-                case "🍋" -> bet * 4;
-                case "🍔" -> bet * 5;
-                case "⭐" -> bet * 10;
-                default -> 0;
-            };
+            return getMultiplier(row[0]) * bet;
         }
 
         else{
@@ -181,6 +161,17 @@ public class Exercise9_slotMachine_30 {
         }
 
 
+    }
+
+    static int getMultiplier(String symbol) {
+        return switch(symbol) {
+            case "🍒" -> 2;
+            case "🍉" -> 3;
+            case "🍋" -> 4;
+            case "🍔" -> 5;
+            case "⭐" -> 10;
+            default -> 0;
+        };
     }
 
 }
