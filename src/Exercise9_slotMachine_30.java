@@ -18,7 +18,7 @@ public class Exercise9_slotMachine_30 {
         char letter;
         int bet = 0;
         int payout = 0;
-        String[] row = {"🍒", "🍔", "🍉", "⭐", "🍋"};
+        String[] row;
 
         // DISPLAY WELCOME MESSAGE
         System.out.println("****************************");
@@ -26,12 +26,6 @@ public class Exercise9_slotMachine_30 {
         System.out.println("   Symbols: 🍒️ 🍔 🍉 ⭐ 🍋 ");
         System.out.println("****************************\n");
 
-        System.out.println("JAVA Sloat Machine Win and loss explanation (payout)---");
-        System.out.println(" JACKPOT = Bet amount * 10 (1000%)");
-        System.out.println("    eg:- (🍒️ | 🍒️ | 🍒️) if you bet $100, you will win $1000\n");
-        System.out.println(" DOUBLES = bet amount * 2 (200%)");
-        System.out.println("    eg:- (⭐ | ⭐ | 🍉) if you bet $100, you will win $200\n");
-        System.out.println(" *ₑₗₛₑ you will lose the money.\n");
 
         // PLAY IF BALANCE > 0
         balance = addToBalance();
@@ -58,50 +52,16 @@ public class Exercise9_slotMachine_30 {
             }
 
             // SPIN ROW
-            int x = random.nextInt(5);
-            int y = random.nextInt(5);
-            int z = random.nextInt(5);
+            row = SpinRow();
+
 
             // PRINT ROW
-            System.out.println("Current bet amount: " + bet);
-            Thread.sleep(1000);
-            System.out.println();
-            System.out.println("Starting the Spinning...\n");
-            System.out.print(row[x]);
-            Thread.sleep(1000);
-            System.out.print(" | " + row[y]);
-            Thread.sleep(1200);
-            System.out.print(" | " + row[z]+"\n\n");
+            PrintRow(row);
 
-            if(x == y && y == z){
-                System.out.println("---JACKPOT---");
-                payout = bet*10;
-                System.out.println("Payout = $" + payout);
-                balance += payout;
-            }
-            else if (x == y) {
-                System.out.println("---DOUBLES---");
-                payout = bet*2;
-                System.out.println("Payout = $" + payout);
-                balance += payout;
-            }
-            else if (x == z) {
-                System.out.println("---DOUBLES---");
-                payout = bet*2;
-                System.out.println("Payout = $" + payout);
-                balance += payout;
-            }
-            else if (y == z) {
-                System.out.println("---DOUBLES---");
-                payout = bet*2;
-                System.out.println("Payout = $" + payout);
-                balance += payout;
-            }
-            else {
-                System.out.println("You lost 😞");
-            }
 
             // GET PAYOUT
+            balance += GetPayOut(row, bet);
+
             System.out.println("Current Balance: $" + balance);
 
             // ASK TO PLAY AGAIN
@@ -138,4 +98,65 @@ public class Exercise9_slotMachine_30 {
         }
         return balance;
     }
+
+    static String[] SpinRow() {
+        String [] symbol = {"🍒", "🍔", "🍉", "⭐", "🍋"};
+        String [] row = new String[3];
+
+        for (int i = 0; i <3; i++){
+            row[i] = symbol[random.nextInt(symbol.length)];
+        }
+
+        return row;
+    }
+
+    static void PrintRow(String [] row) throws InterruptedException {
+        System.out.println("****************");
+        System.out.println(" SPINNING....\n");
+        for(int i = 0; i < row.length; i++){
+            System.out.print(row[i]);
+            Thread.sleep(1000);
+            if(i == 2){
+                System.out.println("\n****************");
+                break; // This is used to not print '|' after the last emoji
+            }
+            System.out.print(" | ");
+        }
+        System.out.println();
+    }
+
+    static int GetPayOut(String [] row, int bet){
+
+        if ( (row[0].equals(row[1])) && (row[1].equals(row[2])) ){
+            System.out.println("---JACKPOT---");
+            return switch(row[0]){
+                case "🍒" -> bet*3;
+                case "🍉" -> bet*4;
+                case "🍋" -> bet*5;
+                case "🍔" -> bet*10;
+                case "⭐" -> bet*20;
+                default -> 0;
+            }; // This ; is needed because we are using return
+        }
+
+        else if( (row[0].equals(row[1])) || (row[1].equals(row[2])) || row[0].equals(row[2])) {
+            System.out.println("---DOUBLES---");
+            return switch (row[0]) {
+                case "🍒" -> bet * 2;
+                case "🍉" -> bet * 3;
+                case "🍋" -> bet * 4;
+                case "🍔" -> bet * 5;
+                case "⭐" -> bet * 10;
+                default -> 0;
+            };
+        }
+
+        else{
+            System.out.println("you lost...");
+            return 0;
+        }
+
+
+    }
+
 }
