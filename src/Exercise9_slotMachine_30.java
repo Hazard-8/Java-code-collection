@@ -153,7 +153,7 @@ public class Exercise9_slotMachine_30 {
 
         else if( (row[1].equals(row[2])) ){
             System.out.println("---DOUBLES---");
-            return switch (row[0]) {
+            return switch (row[1]) {
                 case "🍒" -> bet * 2;
                 case "🍉" -> bet * 3;
                 case "🍋" -> bet * 4;
