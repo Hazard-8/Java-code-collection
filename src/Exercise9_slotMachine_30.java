@@ -139,7 +139,31 @@ public class Exercise9_slotMachine_30 {
             }; // This ; is needed because we are using return
         }
 
-        else if( (row[0].equals(row[1])) || (row[1].equals(row[2])) || row[0].equals(row[2])) {
+        else if( (row[0].equals(row[1]))) {
+            System.out.println("---DOUBLES---");
+            return switch (row[0]) {
+                case "🍒" -> bet * 2;
+                case "🍉" -> bet * 3;
+                case "🍋" -> bet * 4;
+                case "🍔" -> bet * 5;
+                case "⭐" -> bet * 10;
+                default -> 0;
+            };
+        }
+
+        else if( (row[1].equals(row[2])) ){
+            System.out.println("---DOUBLES---");
+            return switch (row[0]) {
+                case "🍒" -> bet * 2;
+                case "🍉" -> bet * 3;
+                case "🍋" -> bet * 4;
+                case "🍔" -> bet * 5;
+                case "⭐" -> bet * 10;
+                default -> 0;
+            };
+        }
+
+        else if( (row[0].equals(row[2])) ){
             System.out.println("---DOUBLES---");
             return switch (row[0]) {
                 case "🍒" -> bet * 2;
