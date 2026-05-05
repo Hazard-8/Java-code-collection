@@ -150,11 +150,6 @@ public class Exercise9_slotMachine_30 {
             return getMultiplier(row[1]) * bet;
         }
 
-        else if( (row[0].equals(row[2])) ){
-            System.out.println("---DOUBLES---");
-            return getMultiplier(row[0]) * bet;
-        }
-
         else{
             System.out.println("you lost...");
             return 0;
