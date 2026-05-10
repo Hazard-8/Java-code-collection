@@ -8,7 +8,6 @@ public class Overloaded_Constructor_33 {
         //                          Enable objects to be initialized in various ways.
 
         User_33_1 user0 = new User_33_1();
-
         User_33_1 user1 = new User_33_1("Leona");
         User_33_1 user2 = new User_33_1("Patrick", 20);
         User_33_1 user3 = new User_33_1("George", "Geori@outlook.com");
