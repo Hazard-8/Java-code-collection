@@ -11,7 +11,8 @@ public class Student_32_1 {
 
         this.name = name; // this. keyword refers to the object
                           // we are currently constructing or currently working with
-        this.age = age;
+        this.age = age;   // .this works like if, I am dealing with Student1
+                          // in that case .this acts as Student1.age
         this.gpa = gpa;
         this.isEnrolled = true;
     }

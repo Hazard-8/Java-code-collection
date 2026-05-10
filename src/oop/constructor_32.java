@@ -4,6 +4,7 @@ public class constructor_32 {
 
     public static void main(String [] args){
 
+        // A constructor must have same name as the class
         // constructor = A special method to initialize objects
         //               You can pass arguments to a constructor
         //               and set up initial values
