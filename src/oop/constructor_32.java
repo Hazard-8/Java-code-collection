@@ -10,6 +10,7 @@ public class constructor_32 {
         //               and set up initial values
 
         Student_32_1 student1 = new Student_32_1("Sponge bob", 21, 3.7);
+        //This is called constructing an object
         Student_32_1 student2 = new Student_32_1("Sunny", 20, 4.0);
 
         System.out.println(student1.name);
