@@ -1,4 +1,4 @@
-package oop;
+package oop.ArrayOfObjects;
 
 public class Car_34_1 {
 

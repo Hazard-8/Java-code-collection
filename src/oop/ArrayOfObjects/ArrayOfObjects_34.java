@@ -1,4 +1,4 @@
-package oop;
+package oop.ArrayOfObjects;
 
 public class ArrayOfObjects_34 {
     public static void main(String[] args){

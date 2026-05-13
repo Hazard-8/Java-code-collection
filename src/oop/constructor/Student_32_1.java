@@ -1,4 +1,4 @@
-package oop;
+package oop.constructor;
 
 public class Student_32_1 {
 

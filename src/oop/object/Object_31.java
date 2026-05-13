@@ -1,4 +1,4 @@
-package oop;
+package oop.object;
 
 public class Object_31 {
     public static void main(String [] args){

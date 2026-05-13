@@ -1,4 +1,4 @@
-package oop;
+package oop.Static;
 
 public class Static_35 {
     public static void main(String [] args){
