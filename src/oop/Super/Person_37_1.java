@@ -1,11 +1,11 @@
 package oop.Super;
 
-public class Person {
+public class Person_37_1 {
 
     String first;
     String last;
 
-    Person(String first, String last){
+    Person_37_1(String first, String last){
         this.first = first;
         this.last = last;
     }

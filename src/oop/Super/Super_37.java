@@ -1,6 +1,6 @@
 package oop.Super;
 
-public class Super {
+public class Super_37 {
     public static void main(String [] args){
 
         //                                                        (child class <- parent class)
@@ -8,9 +8,9 @@ public class Super {
         //         Used in constructor and method overriding
         //         Calls the parent constructor to initialize attributes
 
-        Person person = new Person("Tom", "Holland");
-        Student student = new Student("Richard", "Bard", 3.2);
-        Employee employee = new Employee("Patrick", "james", 80000);
+        Person_37_1 person = new Person_37_1("Tom", "Holland");
+        Student_37_1_1 student = new Student_37_1_1("Richard", "Bard", 3.2);
+        Employee_37_1_2 employee = new Employee_37_1_2("Patrick", "james", 80000);
 
         person.showName();
         student.showGpa();
