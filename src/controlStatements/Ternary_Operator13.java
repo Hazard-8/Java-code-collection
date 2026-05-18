@@ -1,4 +1,4 @@
-package controlstatements;
+package controlStatements;
 
 public class Ternary_Operator13 {
     public static void main (String [] args){

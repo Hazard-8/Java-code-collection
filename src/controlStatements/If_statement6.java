@@ -1,4 +1,4 @@
-package controlstatements;
+package controlStatements;
 
 import java.util.Scanner;
 public class If_statement6 {
