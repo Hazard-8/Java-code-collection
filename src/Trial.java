@@ -1,96 +1,102 @@
 import java.util.Scanner;
 
-enum Units {
-    ZERO(0,"ZERO"), ONE(1,"ONE"), TWO(2,"TWO"),
-    THREE(3,"THREE"), FOUR(4,"FOUR"), FIVE(5,"FIVE"),
-    SIX(6,"SIX"), SEVEN(7,"SEVEN"), EIGHT(8,"EIGHT"),
-    NINE(9,"NINE"), TEN(10,"TEN"), ELEVEN(11,"ELEVEN"),
-    TWELVE(12,"TWELVE"), THIRTEEN(13,"THIRTEEN"),
-    FOURTEEN(14,"FOURTEEN"), FIFTEEN(15,"FIFTEEN"),
-    SIXTEEN(16,"SIXTEEN"), SEVENTEEN(17,"SEVENTEEN"),
-    EIGHTEEN(18,"EIGHTEEN"), NINETEEN(19,"NINETEEN");
+class NumberToWords {
 
-    int val;
-    String word;
+    enum Numbers {
 
-    Units(int val, String word) {
-        this.val = val;
-        this.word = word;
+        ZERO("ZERO"), ONE("ONE"), TWO("TWO"), THREE("THREE"), FOUR("FOUR"),
+        FIVE("FIVE"), SIX("SIX"), SEVEN("SEVEN"), EIGHT("EIGHT"), NINE("NINE"),
+        TEN("TEN"), ELEVEN("ELEVEN"), TWELVE("TWELVE"), THIRTEEN("THIRTEEN"),
+        FOURTEEN("FOURTEEN"), FIFTEEN("FIFTEEN"), SIXTEEN("SIXTEEN"), SEVENTEEN("SEVENTEEN"),
+        EIGHTEEN("EIGHTEEN"), NINETEEN("NINETEEN"), TWENTY("TWENTY"), THIRTY("THIRTY"),
+        FORTY("FORTY"), FIFTY("FIFTY"), SIXTY("SIXTY"), SEVENTY("SEVENTY"),
+        EIGHTY("EIGHTY"), NINETY("NINETY");
+
+        String word;
+
+        Numbers(String word) {
+            this.word = word;
+        }
+
+        String getWord() {
+            return word;
+        }
     }
 
-    static String of(int n) {
-        for (Units u : values())
-            if (u.val == n) return u.word;
-        return "";
-    }
-}
+    static String twoDigits(int num) {
 
-enum Tens {
-    TWENTY(20,"TWENTY"), THIRTY(30,"THIRTY"),
-    FORTY(40,"FORTY"), FIFTY(50,"FIFTY"),
-    SIXTY(60,"SIXTY"), SEVENTY(70,"SEVENTY"),
-    EIGHTY(80,"EIGHTY"), NINETY(90,"NINETY");
+        if(num < 20) {
+            return Numbers.values()[num].getWord();
+        }
 
-    int val;
-    String word;
+        int tens = num / 10;
+        int ones = num % 10;
 
-    Tens(int val, String word) {
-        this.val = val;
-        this.word = word;
-    }
-
-    static String of(int n) {
-        for (Tens t : values())
-            if (t.val == n) return t.word;
-        return "";
-    }
-}
-
-enum Scale {
-    HUNDRED(100,"HUNDRED"), THOUSAND(1000,"THOUSAND");
-
-    int val;
-    String word;
-
-    Scale(int val, String word) {
-        this.val = val;
-        this.word = word;
-    }
-}
-
-public class Trial {
-
-    static String convert(int n) {
-        if (n == 0) return "ZERO";
         String result = "";
 
-        if (n >= 1000) {
-            result += convert(n / 1000) + " " + Scale.THOUSAND.word + " "; n %= 1000;
+        switch(tens) {
+
+            case 2 -> result = Numbers.TWENTY.getWord();
+            case 3 -> result = Numbers.THIRTY.getWord();
+            case 4 -> result = Numbers.FORTY.getWord();
+            case 5 -> result = Numbers.FIFTY.getWord();
+            case 6 -> result = Numbers.SIXTY.getWord();
+            case 7 -> result = Numbers.SEVENTY.getWord();
+            case 8 -> result = Numbers.EIGHTY.getWord();
+            case 9 -> result = Numbers.NINETY.getWord();
         }
 
-        if (n >= 100)  {
-            result += Units.of(n / 100) + " " + Scale.HUNDRED.word + " ";  n %= 100;
+        if(ones != 0) {
+            result += " " + Numbers.values()[ones].getWord();
         }
 
-        if (n >= 20)   {
-            result += Tens.of((n / 10) * 10); if (n % 10 != 0) result += " " + Units.of(n % 10);
+        return result;
+    }
+
+    static String convert(int num) {
+
+        if(num == 0) {
+            return Numbers.ZERO.getWord();
         }
 
-        else if (n > 0){
-            result += Units.of(n);
+        String result = "";
+
+        int thousands = num / 1000;
+        int remaining = num % 1000;
+
+        if(thousands > 0) {
+            result += twoDigits(thousands) + " THOUSAND ";
         }
-        return result.trim();
+
+        int hundreds = remaining / 100;
+        remaining = remaining % 100;
+
+        if(hundreds > 0) {
+            result += Numbers.values()[hundreds].getWord() + " HUNDRED ";
+        }
+
+        if(remaining > 0) {
+            result += twoDigits(remaining);
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        // Source - https://stackoverflow.com/a/31415157
-// Posted by Andrew, modified by community. See post 'Timeline' for change history
-// Retrieved 2026-05-05, License - CC BY-SA 3.0
 
-        final String string = "CO\u2082"; // CO₂
-        System.out.println(string);
-        System.out.print("Enter number (0-99999): ");
-        System.out.println(convert(sc.nextInt()));
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number (0-99999): ");
+        int num = sc.nextInt();
+
+        if(num < 0 || num > 99999) {
+            System.out.println("Out of range");
+        }
+
+        else {
+            System.out.println(convert(num));
+        }
+
+        sc.close();
     }
 }
