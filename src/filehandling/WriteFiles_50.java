@@ -41,7 +41,7 @@ public class WriteFiles_50 {
                 finally{
                     System.out.println("This will always execute.");
                 }
-                break; // This is necessary, else it will continue to execute case 2
+                break; // This is necessary, Otherwise it will continue to execute case 2
             case 2:
 
                 for(int i = 0; i < 13; i++) {
