@@ -8,7 +8,7 @@ public class Abstract_40 {
         //            and showing only the essential features;
         //            Abstract class can't be instantiated directly
         //            Can contain 'abstract' methods (which must be implemented)
-        //            Can contain 'concrate' methods (which are inherited)
+        //            Can contain 'concrete' methods (which are inherited)
 
         // Shape_40_1 shape = new Shape_40_1(); // This won't work because it's abstract
 
